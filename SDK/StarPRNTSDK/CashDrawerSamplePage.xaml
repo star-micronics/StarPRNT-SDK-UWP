@@ -1,0 +1,108 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="StarPRNTSDK.CashDrawerSamplePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StarPRNTSDK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.TopAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <TextBlock Text="Cash Drawer" Style="{StaticResource TitleTextBlockStyle}" Margin="12,8"/>
+            </CommandBar.Content>
+        </CommandBar>
+    </Page.TopAppBar>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Content-->
+        <ScrollViewer Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel  Background="White">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <!--Like a StarIO-SDK Sample-->
+                        <RowDefinition Height="Auto"/>
+                        <!--Channel1 (Check condition)-->
+                        <RowDefinition Height="Auto"/>
+                        <!--Channel1 (Do not check condition)-->
+                        <RowDefinition Height="Auto"/>
+                        <!--Channel2 (Check condition)-->
+                        <RowDefinition Height="Auto"/>
+                        <!--Channel2 (Do not condition)-->
+                        <RowDefinition Height="Auto"/>
+                        <!--StarIoExtManager Sample-->
+                        <RowDefinition Height="Auto"/>
+                        <!--Channel1 (Check condition)-->
+                        <RowDefinition Height="Auto"/>
+                        <!--Channel1 (Do not check condition)-->
+                        <RowDefinition Height="Auto"/>
+                        <!--Channel2 (Check condition)-->
+                        <RowDefinition Height="Auto"/>
+                        <!--Channel2 (Do not condition)-->
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Background="LightGray" >
+                        <TextBlock Text="Like a StarIO-SDK Sample" Foreground="Black" Margin="10,0,0,0"/>
+                    </Border>
+                    <StackPanel Grid.Row="1" Orientation="Vertical">
+                        <TextBlock x:Name="Channel1" Text="Channel1 (Check condition)" Foreground="Blue" Margin="20,0,0,0" Tapped="CashDrawer_Tapped"/>
+                        <Border BorderBrush="LightGray" BorderThickness="1"></Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Orientation="Vertical">
+                        <TextBlock x:Name="Channel1DoNotCheckCondition" Text="Channel1 (Do not check condition)" Foreground="Blue" Margin="20,0,0,0" Tapped="CashDrawer_Tapped"/>
+                        <Border BorderBrush="LightGray" BorderThickness="1"></Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3" Orientation="Vertical">
+                        <TextBlock x:Name="Channel2" Text="Channel2 (Check condition)" Foreground="Blue" Margin="20,0,0,0" Tapped="CashDrawer_Tapped"/>
+                        <Border BorderBrush="LightGray" BorderThickness="1"></Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4" Orientation="Vertical">
+                        <TextBlock x:Name="Channel2DoNotCheckCondition" Text="Channel2 (Do not check condition)" Foreground="Blue" Margin="20,0,0,0" Tapped="CashDrawer_Tapped"/>
+                        <Border BorderBrush="LightGray" BorderThickness="1"></Border>
+                    </StackPanel>
+
+
+                    <!--StarIOExtManager Sample-->
+                    <Border Grid.Row="5" Background="LightGray" >
+                        <TextBlock Text="StarIOExtManager Sample" Foreground="Black" Margin="10,0,0,0"/>
+                    </Border>
+                    <StackPanel Grid.Row="6" Orientation="Vertical">
+                        <TextBlock x:Name="Channel1Ext" Text="Channel1 (Check condition)" Foreground="Blue" Margin="20,0,0,0" Tapped="CashDrawerExt_Tapped"/>
+                        <Border BorderBrush="LightGray" BorderThickness="1"></Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="7" Orientation="Vertical">
+                        <TextBlock x:Name="Channel1ExtDoNotCheckCondition" Text="Channel1 (Do not check condition)" Foreground="Blue" Margin="20,0,0,0" Tapped="CashDrawerExt_Tapped"/>
+                        <Border BorderBrush="LightGray" BorderThickness="1"></Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="8" Orientation="Vertical">
+                        <TextBlock x:Name="Channel2Ext" Text="Channel2 (Check condition)" Foreground="Blue" Margin="20,0,0,0" Tapped="CashDrawerExt_Tapped"/>
+                        <Border BorderBrush="LightGray" BorderThickness="1"></Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="9" Orientation="Vertical">
+                        <TextBlock x:Name="Channel2ExtDoNotCheckCondition" Text="Channel2 (Do not check condition)" Foreground="Blue" Margin="20,0,0,0" Tapped="CashDrawerExt_Tapped"/>
+                        <Border BorderBrush="LightGray" BorderThickness="1"></Border>
+                    </StackPanel>
+
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

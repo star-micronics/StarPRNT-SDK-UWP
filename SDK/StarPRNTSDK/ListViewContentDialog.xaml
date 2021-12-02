@@ -1,0 +1,29 @@
+﻿<ContentDialog
+    x:Class="StarPRNTSDK.ListViewContentDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StarPRNTSDK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="TITLE"
+    SecondaryButtonText="Cancel"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    >
+
+    <ContentDialog.Resources>
+        <local:ListViewDataCollection x:Key="ListViewDataCollection" />
+    </ContentDialog.Resources>
+    
+    <Grid>
+        <ScrollViewer  x:Name="ScrollViewerList"  VerticalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollMode="Enabled">
+            <ListView x:Name="listView1" ItemsSource="{StaticResource ListViewDataCollection}" Tapped="listView1_Tapped" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                            <TextBlock Text="{Binding Item}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+    </Grid>
+</ContentDialog>

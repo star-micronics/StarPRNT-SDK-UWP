@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="StarPRNTSDK.HoldPrintSamplePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StarPRNTSDK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.TopAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <TextBlock Text="Hold Print" Style="{StaticResource TitleTextBlockStyle}" Margin="12,8"/>
+            </CommandBar.Content>
+        </CommandBar>
+    </Page.TopAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Print three pages." HorizontalAlignment="Left" Margin="10, 0, 0, 0"/>
+
+                <Grid Margin="10">
+                    <TextBlock Text="Holding Control" HorizontalAlignment="Left" />
+
+                    <ComboBox Name="holdingControlComboBox" HorizontalAlignment="Right" SelectedIndex="0" >
+                        <ComboBoxItem Name="alwaysComboBoxItem" Content="Always Hold"/>
+                        <ComboBoxItem Name="lastPageComboBoxItem" Content="Hold before printing the last page"/>
+                        <ComboBoxItem Name="doNotHoldComboBoxItem" Content="Do not hold"/>
+                    </ComboBox>
+                </Grid>
+
+                <Button Content="Print" HorizontalAlignment="Right" Margin="0, 0, 10, 0" Click="PlayButton_Click"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

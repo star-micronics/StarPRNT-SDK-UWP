@@ -1,0 +1,70 @@
+﻿<Page
+    x:Name="pageRoot"
+    x:Class="StarPRNTSDK.PrinterSettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:StarPRNTSDK"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <!--NavigationCacheMode="Enabled">-->
+
+    <Page.Resources>
+        <CollectionViewSource x:Name="PrinterModelListSource"/>
+
+        <CollectionViewSource x:Name="PortSettingListSource"/>
+
+        <CollectionViewSource x:Name="PaperSizeListSource"/>
+
+    </Page.Resources>
+
+    <Page.TopAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <TextBlock Text="Printer Settings" Style="{StaticResource TitleTextBlockStyle}" Margin="12,8"/>
+            </CommandBar.Content>
+        </CommandBar>
+    </Page.TopAppBar>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0">
+            <StackPanel  Orientation="Vertical">
+                <TextBlock Text="Select your printer" Margin="10, 0, 0, 0" />
+                <ComboBox x:Name="PrinterModelComboBox" ItemsSource="{Binding Source={StaticResource PrinterModelListSource}}" Margin="20, 10, 0, 0" FontFamily="Global User Interface">
+
+                </ComboBox>
+
+                <TextBlock x:Name="CashDrawerTextBlock" Text="Select CashDrawer Open Status" Foreground="Black" Margin="10, 10, 0, 0" />
+                <ToggleSwitch x:Name="CashDrawerOpenStatusToggleSwitch" IsOn="True"  OffContent="Low when Open" OnContent="High when Open" Margin="20, 10, 0, 0" FontFamily="Global User Interface" />
+
+                <TextBlock Text="Enter the Port Name" Margin="10, 10, 0, 0"/>
+                <TextBox x:Name="PortNameTextBox" Margin="20, 10, 10, 0" FontFamily="Global User Interface"/>
+
+                <TextBlock Text="Enter the Port Settings" Margin="10, 10, 0, 0"/>
+                <TextBox x:Name="PortSettingsTextBox" Margin="20, 10, 10, 0" FontFamily="Global User Interface"/>
+                
+                <TextBlock x:Name="PaperSizeTextBox" Text="Select paper size" Margin="10,10,0,0"/>
+                <ComboBox x:Name="PaperSizeComboBox" ItemsSource="{Binding Source={StaticResource PaperSizeListSource}}" Margin="20, 10, 0, 0" >
+                    <ComboBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel HorizontalAlignment="Left" Width="240" />
+                        </ItemsPanelTemplate>
+                    </ComboBox.ItemsPanel>
+                </ComboBox>
+
+                <Button Content="OK" HorizontalAlignment="Right" Click="Button_Click" VerticalAlignment="Bottom" Margin="0, 0, 40, 10"/>
+            </StackPanel>
+        </ScrollViewer>
+
+
+    </Grid>
+</Page>

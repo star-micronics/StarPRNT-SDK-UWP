@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E2ACAB7D-2180-42C4-A431-7D69F9ED5E86}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StarPRNTSDK</RootNamespace>
+    <AssemblyName>StarPRNTSDK</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.18362.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <AppxBundle>Always</AppxBundle>
+    <PackageCertificateThumbprint>B7BBEA7B081D5F36E855A0F1A5617A0A8D14A25F</PackageCertificateThumbprint>
+    <PackageCertificateKeyFile>StarPRNTSDK_StoreKey.pfx</PackageCertificateKeyFile>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppInstallerUpdateFrequency>0</AppInstallerUpdateFrequency>
+    <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="APISamplePage.xaml.cs">
+      <DependentUpon>APISamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BlackMarkPasteSamplePage.xaml.cs">
+      <DependentUpon>BlackMarkPasteSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BlackMarkSamplePage.xaml.cs">
+      <DependentUpon>BlackMarkSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BluetoothSettingsSample.xaml.cs">
+      <DependentUpon>BluetoothSettingsSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayExtSamplePage.xaml.cs">
+      <DependentUpon>DisplayExtSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarcodeReaderSamplePage.xaml.cs">
+      <DependentUpon>BarcodeReaderSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Functions\MelodySpeakerFunctions.cs" />
+    <Compile Include="HoldPrintSamplePage.xaml.cs">
+      <DependentUpon>HoldPrintSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LisenceDialog.xaml.cs">
+      <DependentUpon>LisenceDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewContentDialog.xaml.cs">
+      <DependentUpon>ListViewContentDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Localizereceipts\UTF8MultiLanguageReceiptsImple.cs" />
+    <Compile Include="MelodySpeakerSamplePage.xaml.cs">
+      <DependentUpon>MelodySpeakerSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageModeSamplePage.xaml.cs">
+      <DependentUpon>PageModeSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListViewDataCollection.cs" />
+    <Compile Include="PrintRedirectionSamplePage.xaml.cs">
+      <DependentUpon>PrintRedirectionSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CashDrawerExtSamplePage.xaml.cs">
+      <DependentUpon>CashDrawerExtSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Functions\DisplayFunction.cs" />
+    <Compile Include="DisplaySamplePage.xaml.cs">
+      <DependentUpon>DisplaySamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CashDrawerSamplePage.xaml.cs">
+      <DependentUpon>CashDrawerSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CombinationExtSamplePage.xaml.cs">
+      <DependentUpon>CombinationExtSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CombinationSamplePage.xaml.cs">
+      <DependentUpon>CombinationSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Communications\Communication.cs" />
+    <Compile Include="DeviceStatusSamplePage.xaml.cs">
+      <DependentUpon>DeviceStatusSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Functions\APIFunctions.cs" />
+    <Compile Include="Functions\CashDrawerFunctions.cs" />
+    <Compile Include="Functions\CombinationFunctions.cs" />
+    <Compile Include="Functions\PrinterFunctions.cs" />
+    <Compile Include="Localizereceipts\EnglishReceiptsImpl.cs" />
+    <Compile Include="Localizereceipts\FrenchReceiptsImpl.cs" />
+    <Compile Include="Localizereceipts\GermanReceiptsImpl.cs" />
+    <Compile Include="Localizereceipts\ILocalizeReceipts.cs" />
+    <Compile Include="Localizereceipts\JapaneseReceiptsImpl.cs" />
+    <Compile Include="Localizereceipts\PortugueseReceiptsImpl.cs" />
+    <Compile Include="Localizereceipts\RussianReceiptsImpl.cs" />
+    <Compile Include="Localizereceipts\SimplifiedChineseReceiptsImpl.cs" />
+    <Compile Include="Localizereceipts\SpanishReceiptsImpl.cs" />
+    <Compile Include="Localizereceipts\TraditionalChineseReceiptsImpl.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCapability.cs" />
+    <Compile Include="PrinterExtSamplePage.xaml.cs">
+      <DependentUpon>PrinterExtSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterSamplePage.xaml.cs">
+      <DependentUpon>PrinterSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterSettings.cs" />
+    <Compile Include="PrinterSettingsPage.xaml.cs">
+      <DependentUpon>PrinterSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductList.cs" />
+    <Compile Include="ProgressRing.xaml.cs">
+      <DependentUpon>ProgressRing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchPortSamplePage.xaml.cs">
+      <DependentUpon>SearchPortSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectBoolContentDialog.xaml.cs">
+      <DependentUpon>SelectBoolContentDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectedPrinter.cs" />
+    <Compile Include="SelectSettingContentDialog.xaml.cs">
+      <DependentUpon>SelectSettingContentDialog.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="packages.config" />
+    <None Include="StarPRNTSDK_StoreKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\DisplayImage1.png" />
+    <Content Include="Assets\DisplayImage2.png" />
+    <Content Include="Assets\PrintableArea_image.png" />
+    <Content Include="Assets\SplashScreen\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\coupon_image.png" />
+    <Content Include="Assets\coupon_image_french.png" />
+    <Content Include="Assets\coupon_image_german.png" />
+    <Content Include="Assets\coupon_image_japanese.png" />
+    <Content Include="Assets\coupon_image_portuguese.png" />
+    <Content Include="Assets\coupon_image_russian.png" />
+    <Content Include="Assets\coupon_image_simplified_chinese.png" />
+    <Content Include="Assets\coupon_image_spanish.png" />
+    <Content Include="Assets\coupon_image_traditional_chinese.png" />
+    <Content Include="Assets\sphere_image.png" />
+    <Content Include="Assets\star_logo_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="APISamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BlackMarkPasteSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BlackMarkSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeviceFamily-Mobile\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BluetoothSettingsSample.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DisplayExtSamplePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="BarcodeReaderSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HoldPrintSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LisenceDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListViewContentDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MelodySpeakerSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageModeSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PrintRedirectionSamplePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CashDrawerExtSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DisplaySamplePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CashDrawerSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CombinationExtSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CombinationSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeviceStatusSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PrinterExtSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PrinterSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PrinterSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProgressRing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchPortSamplePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectBoolContentDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SelectSettingContentDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.8</Version>
+    </PackageReference>
+    <PackageReference Include="StarMicronics.StarIO.UWP">
+      <Version>1.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="StarMicronics.StarIOExtension.UWP">
+      <Version>1.10.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
