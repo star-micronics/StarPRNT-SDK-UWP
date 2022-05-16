@@ -556,19 +556,35 @@ namespace StarPRNTSDK
                     SetPaperSize(Convert.ToInt32(paperSize), false);
                 }
 
+                const Int32 ERROR_ACCESS_DENIED = unchecked((Int32)0x80070005);
+                const Int32 ERROR_SHARING_VIOLATION = unchecked((Int32)0x80070020);
 
+                int retryAttempts = 3;
 
-
-                using (var ms = new MemoryStream())
+                while (retryAttempts > 0)
                 {
-                    serializer.WriteObject(ms, items);
+                    try
+                    {
+                        retryAttempts--;
 
-                    StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync("PrinterSettings.json", CreationCollisionOption.ReplaceExisting);
+                        using (var ms = new MemoryStream())
+                        {
+                            serializer.WriteObject(ms, items);
 
-                    byte[] array = ms.ToArray();
-                    await FileIO.WriteBytesAsync(file, array);
+                            StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync("PrinterSettings.json", CreationCollisionOption.ReplaceExisting);
+
+                            byte[] array = ms.ToArray();
+                            await FileIO.WriteBytesAsync(file, array);
+
+                            break;
+                        }
+                    }
+                    catch (Exception ex) when ((ex.HResult == ERROR_ACCESS_DENIED) ||
+                                               (ex.HResult == ERROR_SHARING_VIOLATION))
+                    {
+                        await Task.Delay(500);
+                    }
                 }
-
             }
             catch (Exception)
             {

@@ -356,7 +356,7 @@
       <Version>6.2.8</Version>
     </PackageReference>
     <PackageReference Include="StarMicronics.StarIO.UWP">
-      <Version>1.7.0</Version>
+      <Version>1.7.1</Version>
     </PackageReference>
     <PackageReference Include="StarMicronics.StarIOExtension.UWP">
       <Version>1.10.1</Version>

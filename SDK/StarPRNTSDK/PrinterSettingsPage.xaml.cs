@@ -1,6 +1,7 @@
 ﻿using StarIO_Extension;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -89,9 +90,9 @@ namespace StarPRNTSDK
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.ApplySetting();
+            await this.ApplySetting();
 
             SelectedPrinter selectedPrinter = new SelectedPrinter();
 
@@ -155,7 +156,7 @@ namespace StarPRNTSDK
             this.PaperSizeListSource.Source = paperSizeList;
         }
 
-        private async void ApplySetting()
+        private async Task ApplySetting()
         {
             string simpleModelName = "";
             string portName = "";
