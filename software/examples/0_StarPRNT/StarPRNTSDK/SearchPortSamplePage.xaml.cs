@@ -70,7 +70,8 @@ namespace StarPRNTSDK
 
             string portSettings       = modelDic.GetPrinterInfo(info).DefaultPortSettings;
             Emulation emulation       = modelDic.GetPrinterInfo(info).Emulation;
-            bool cashDrawerOpenStatus = modelDic.GetPrinterInfo(info).CashDrawerIsEnabled;
+            bool cashDrawerIsEnabled  = modelDic.GetPrinterInfo(info).CashDrawerIsEnabled;
+            bool cashDrawerOpenStatus = true;
             string paperSize          = modelDic.GetPrinterInfo(info).PaperSize;
             string simpleModelName    = modelDic.GetPrinterInfo(info).SimpleModelName;
             int paperSizeIndex = 0;
@@ -97,7 +98,7 @@ namespace StarPRNTSDK
                     }
                 }
 
-                if (this.IsConfirmCashDrawerActiveHigh(simpleModelName))
+                if (cashDrawerIsEnabled && this.ChangeCashDrawerPolarityIsEnabled(simpleModelName))
                 {
                     SelectSettingContentDialog selectCashDrawerActiveHighContentDialog = CreateSelectCashDrawerActiveHighDialog();
 
@@ -210,7 +211,7 @@ namespace StarPRNTSDK
             return paperSize;
         }
 
-        private bool IsConfirmCashDrawerActiveHigh(string simpleModelName)
+        private bool ChangeCashDrawerPolarityIsEnabled(string simpleModelName)
         {
             ModelDictionary modelDic = new ModelDictionary();
             PrinterInfo printerInfo = modelDic.GetPrinterInfo(simpleModelName);

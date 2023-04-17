@@ -379,6 +379,7 @@ namespace StarPRNTSDK
                     break;
 
                 case PrinterModel.MCP30:
+                case PrinterModel.MCL32:
                 case PrinterModel.TSP100IV:
                     SpeakerModel = MelodySpeakerModel.MCS10;
                     break;

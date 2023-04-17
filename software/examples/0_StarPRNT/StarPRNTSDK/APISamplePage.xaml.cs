@@ -42,7 +42,8 @@ namespace StarPRNTSDK
             QRCode,
             BlackMark,
             PageMode,
-            PrintableArea
+            PrintableArea,
+            Label
         }
 
         private struct SelectDialogResult
@@ -124,6 +125,8 @@ namespace StarPRNTSDK
             this.SetAPI(this.PageModeTextBlock, APIType.PageMode);
 
             this.SetAPI(this.PrintableAreaTextBlock, APIType.PrintableArea);
+
+            this.SetAPI(this.LabelTextBlock, APIType.Label);
         }
 
         private void SetAPI(TextBlock apiTextBlock, APIType apiType)
@@ -158,7 +161,7 @@ namespace StarPRNTSDK
                     case 2: blackMarkType = BlackMarkType.ValidWithDetection; break;
                 }
 
-                this.SendAPICommands(apiType, blackMarkType, PrintableAreaType.Standard);
+                this.SendAPICommands(apiType, blackMarkType, PrintableAreaType.Standard, LabelType.Invalid);
             }
             else if (apiType == APIType.PrintableArea)
             {
@@ -189,7 +192,34 @@ namespace StarPRNTSDK
                     case 4: printableAreaType = PrintableAreaType.Type4;    break;
                 }
 
-                this.SendAPICommands(apiType, BlackMarkType.Invalid, printableAreaType);
+                this.SendAPICommands(apiType, BlackMarkType.Invalid, printableAreaType, LabelType.Invalid);
+            }
+            else if (apiType == APIType.Label)
+            {
+                List<string> labelTypeList = new List<string>();
+
+                labelTypeList.Add("Invalid");
+                labelTypeList.Add("Valid");
+                labelTypeList.Add("Valid with Detection");
+
+                SelectDialogResult result = await this.ShowSelectDialog("Select label type.", labelTypeList);
+
+                if (result.isCanceled == true)
+                {
+                    return;
+                }
+
+                LabelType labelType = LabelType.Invalid;
+
+                switch (result.selectedIndex)
+                {
+                    default:
+                    case 0: labelType = LabelType.Invalid; break;
+                    case 1: labelType = LabelType.Valid; break;
+                    case 2: labelType = LabelType.ValidWithDetection; break;
+                }
+
+                this.SendAPICommands(apiType, BlackMarkType.Invalid, PrintableAreaType.Standard, labelType);
             }
             else
             {
@@ -215,7 +245,7 @@ namespace StarPRNTSDK
             return new SelectDialogResult(selectedIndex, isCanceled);
         }
 
-        private async void SendAPICommands(APIType apiType, BlackMarkType blackMarkType, PrintableAreaType printableAreaType)
+        private async void SendAPICommands(APIType apiType, BlackMarkType blackMarkType, PrintableAreaType printableAreaType, LabelType labelType)
         {
             var progressRing = new ProgressRing();
             CommunicationResult result;
@@ -225,7 +255,10 @@ namespace StarPRNTSDK
             {
                 PrinterSettings printerSettings = new PrinterSettings();
 
-                IBuffer commands = await this.CreateCommands(apiType, printerSettings.GetEmulation(true), printerSettings.GetPaperSize(true), blackMarkType, printableAreaType);
+                ModelDictionary modelDic = new ModelDictionary();
+                PrinterModel printerModel = modelDic.GetModel(printerSettings.GetModelTitle(true));
+
+                IBuffer commands = await this.CreateCommands(apiType, printerModel, printerSettings.GetEmulation(true), printerSettings.GetPaperSize(true), blackMarkType, printableAreaType, labelType);
 
                 progressRing.Message = "Communicating...";
                 progressRing.Show();
@@ -257,10 +290,10 @@ namespace StarPRNTSDK
 
         private void SendAPICommands(APIType apiType)
         {
-            this.SendAPICommands(apiType, BlackMarkType.Invalid, PrintableAreaType.Standard);
+            this.SendAPICommands(apiType, BlackMarkType.Invalid, PrintableAreaType.Standard, LabelType.Invalid);
         }
 
-        private async Task<IBuffer> CreateCommands(APIType apiType, Emulation emulation, int paperSize, BlackMarkType blackMarkType, PrintableAreaType printableAreaType)
+        private async Task<IBuffer> CreateCommands(APIType apiType, PrinterModel printerModel, Emulation emulation, int paperSize, BlackMarkType blackMarkType, PrintableAreaType printableAreaType, LabelType labelType)
         {
             IBuffer commands = null;
 
@@ -299,7 +332,7 @@ namespace StarPRNTSDK
                     break;
 
                 case APIType.TopMargin:
-                    commands = APIFunctions.CreateTopMarginData(emulation);
+                    commands = APIFunctions.CreateTopMarginData(printerModel, emulation);
                     break;
 
                 case APIType.Emphasis:
@@ -371,6 +404,10 @@ namespace StarPRNTSDK
 
                 case APIType.PrintableArea:
                     commands = await APIFunctions.CreatePrintableAreaData(emulation, printableAreaType);
+                    break;
+
+                case APIType.Label:
+                    commands = APIFunctions.CreateLabelData(emulation, labelType);
                     break;
 
             }

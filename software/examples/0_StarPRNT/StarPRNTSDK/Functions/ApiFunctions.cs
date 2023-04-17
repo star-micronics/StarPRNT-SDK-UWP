@@ -368,7 +368,7 @@ namespace StarPRNTSDK.Functions
             return builder.GetCommands();
         }
 
-        public static IBuffer CreateTopMarginData(Emulation emulation)
+        public static IBuffer CreateTopMarginData(PrinterModel printerModel, Emulation emulation)
         {
             ICommandBuilder builder = StarIO_Extension.StarIoExt.CreateCommandBuilder(emulation);
 
@@ -376,26 +376,45 @@ namespace StarPRNTSDK.Functions
 
             builder.BeginDocument();
 
-            builder.AppendData(Encoding.GetEncoding("ASCII").GetBytes("*Top margin:2mm*\n").AsBuffer());
-            builder.AppendTopMargin(2);
-            builder.AppendDataWithLineFeed(otherData);
-            builder.AppendDataWithLineFeed(otherData);
-            builder.AppendDataWithLineFeed(otherData);
-            builder.AppendCutPaper(CutPaperAction.PartialCutWithFeed);
+            if (printerModel == PrinterModel.MCL32)
+            {
+                builder.AppendData(Encoding.GetEncoding("ASCII").GetBytes("*Top margin:3mm*\n").AsBuffer());
+                builder.AppendTopMargin(3);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendCutPaper(CutPaperAction.PartialCutWithFeed);
 
-            builder.AppendData(Encoding.GetEncoding("ASCII").GetBytes("*Top margin:6mm*\n").AsBuffer());
-            builder.AppendTopMargin(6);
-            builder.AppendDataWithLineFeed(otherData);
-            builder.AppendDataWithLineFeed(otherData);
-            builder.AppendDataWithLineFeed(otherData);
-            builder.AppendCutPaper(CutPaperAction.PartialCutWithFeed);
+                builder.AppendData(Encoding.GetEncoding("ASCII").GetBytes("*Top margin:11mm*\n").AsBuffer());
+                builder.AppendTopMargin(11);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendCutPaper(CutPaperAction.PartialCutWithFeed);
+            }
+            else
+            {
+                builder.AppendData(Encoding.GetEncoding("ASCII").GetBytes("*Top margin:2mm*\n").AsBuffer());
+                builder.AppendTopMargin(2);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendCutPaper(CutPaperAction.PartialCutWithFeed);
 
-            builder.AppendData(Encoding.GetEncoding("ASCII").GetBytes("*Top margin:11mm*\n").AsBuffer());
-            builder.AppendTopMargin(11);
-            builder.AppendDataWithLineFeed(otherData);
-            builder.AppendDataWithLineFeed(otherData);
-            builder.AppendDataWithLineFeed(otherData);
-            builder.AppendCutPaper(CutPaperAction.PartialCutWithFeed);
+                builder.AppendData(Encoding.GetEncoding("ASCII").GetBytes("*Top margin:6mm*\n").AsBuffer());
+                builder.AppendTopMargin(6);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendCutPaper(CutPaperAction.PartialCutWithFeed);
+
+                builder.AppendData(Encoding.GetEncoding("ASCII").GetBytes("*Top margin:11mm*\n").AsBuffer());
+                builder.AppendTopMargin(11);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendDataWithLineFeed(otherData);
+                builder.AppendCutPaper(CutPaperAction.PartialCutWithFeed);
+            }
 
             builder.EndDocument();
 
@@ -1436,6 +1455,27 @@ namespace StarPRNTSDK.Functions
             builder.AppendDataWithInvert(otherData2);
 
             builder.AppendCutPaper(CutPaperAction.PartialCutWithFeed);
+
+            builder.EndDocument();
+
+            return builder.GetCommands();
+        }
+
+        public static IBuffer CreateLabelData(Emulation emulation, LabelType type)
+        {
+            IBuffer otherData = System.Text.Encoding.UTF8.GetBytes("Hello World.\n").AsBuffer();
+
+            ICommandBuilder builder = StarIO_Extension.StarIoExt.CreateCommandBuilder(emulation);
+
+            builder.BeginDocument();
+
+            builder.AppendLabel(type);
+
+            builder.AppendData(otherData);
+
+            builder.AppendCutPaper(CutPaperAction.PartialCutWithFeed);
+
+            //builder.AppendLabel(LabelType.Invalid);
 
             builder.EndDocument();
 

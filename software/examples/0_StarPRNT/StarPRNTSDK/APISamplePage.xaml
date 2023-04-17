@@ -88,6 +88,8 @@
                         <!--Page Mode-->
                         <RowDefinition Height="Auto"/>
                         <!--Printable Area-->
+                        <RowDefinition Height="Auto"/>
+                        <!--Label-->
                     </Grid.RowDefinitions>
                     <Border Grid.Row="0" Background="LightGray" >
                         <TextBlock Text="Sample" Foreground="Black" Margin="10,0,0,0"/>
@@ -224,6 +226,11 @@
 
                     <StackPanel Grid.Row="27" Orientation="Vertical">
                         <TextBlock x:Name="PrintableAreaTextBlock" Text="Printable Area" Foreground="Blue" Margin="20,0,0,0" />
+                        <Border BorderBrush="LightGray" BorderThickness="1"></Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="28" Orientation="Vertical">
+                        <TextBlock x:Name="LabelTextBlock" Text="Label" Foreground="Blue" Margin="20,0,0,0" />
                         <Border BorderBrush="LightGray" BorderThickness="1"></Border>
                     </StackPanel>
 

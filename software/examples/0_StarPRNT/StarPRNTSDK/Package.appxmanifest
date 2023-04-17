@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="13E94E0A.StarPRNTSDK" Publisher="CN=9047D213-D907-4006-9F15-606BAFD91AEC" Version="5.15.1.0" />
+  <Identity Name="13E94E0A.StarPRNTSDK" Publisher="CN=9047D213-D907-4006-9F15-606BAFD91AEC" Version="5.16.0.0" />
   <!--<mp:PhoneIdentity PhoneProductId="3B394E46-06D9-4601-8712-A34169366319" PhonePublisherId="00000000-0000-0000-0000-000000000000" />-->
   <mp:PhoneIdentity PhoneProductId="b3c1128f-e75b-4669-a108-18fd656087ff" PhonePublisherId="D725B8D4-7318-44D0-A9D2-8882D7015A46" />
   <Properties>

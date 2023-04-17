@@ -1,0 +1,242 @@
+====================
+ Changelog
+====================
+    Ver.5.16.0_20230331
+    2023/03/31
+        [StarIOPort]
+            - Added features
+                * Added mC-Label3.
+            - Added new Bluetooth module information for SM-S230i, SM-T300i, SM-T300 and SM-T400i.
+
+        [StarIOExtension]
+            - Added features
+                * Added mC-Label3.
+
+    Ver.5.15.1_20220510
+    2022/05/10
+        [StarIOPort]
+            - Added new Bluetooth module information for SM-L200.
+
+    Ver.5.15.0_20211029
+    2021/10/29
+        [StarIOPort]
+            - Added features
+                * Added TSP100IV.
+
+        [StarIO_Extension]
+            - Fixed an issue that the printer would not be able to reconnect after connecting to the printer via Lan interface and then disconnecting.
+
+        [SMCloudServices]
+            - End of support
+
+        [SDK]
+            - Added Sample Codes
+                * Added TSP100IV.
+
+    Ver.5.14.0_20201209
+    2020/12/09
+        [StarIODeviceSetting example]
+            - New
+
+        [StarIODeviceSetting]
+            - New
+
+    Ver. 5.14.0
+    2020/06/17
+        [StarIOPort]
+            - Added features
+                * Added MCP31C and TSP650IISK.
+                * Added Hold Print Control function.
+
+        [StarIOExtension]
+            - Added features
+                * Added MCP31C and TSP650IISK.
+                * Added Hold Print Control function.
+                * USB HID class (Keyboard mode) support for StarIoExtManager and IPeripheralCommandParser.
+
+        [SDK]
+            - Added Sample Codes
+                * Added sample codes for Hold Print Control function.
+
+    Ver. 5.13.1
+    2020/04/08
+        [StarIOPort]
+            - Fixed Bug
+                * Fixed the issue that Release build was not possible when linking this library.
+
+    Ver. 5.13.0
+    2019/12/25
+        [Support OS]
+            - End of support Windows10 Mobile
+
+        [SDK]
+            - Changed project structure
+                * Nuget support for each library.
+
+        [Manual]
+            - Changed StarPRNT SDK User's Manual from PDF to online manual link
+
+    Ver. 5.11.0
+    2019/09/04
+        [StarIOPort]
+            - Added features
+                * Get the error code with the Hresult property of the Exception class.
+
+        [StarIOExtension]
+            -  Added features
+                * Changed to enable/disable black mark setting of StarPRNT emulation mobile printer with AppendBlackMark method.
+
+        [SMCloudServices]
+            - Fixed Bugs
+                * Fixed layout of view displayed by ShowRegistrationView method.
+
+        [SDK]
+            - Added Sample Codes
+                * Added sample codes for getting the cause of communication failure with the printer.
+
+    Ver. 5.10.0
+    2019/03/07
+        [StarIOExtension]
+            - Added features
+                * Added AppendCjkUnifiedIdeographFont method.
+                It allows you to specify the priority of CJK integrated Kanji font in UTF-8.
+                Supported printer: TSP650II(JP2/TW) with firmware version 4.0 or later, mC-Print2 and mC-Print3
+                * Added ExtMode which specifies the barcode mode (symbol width) conforming to
+                each command specification to BarcodeWidth enumeration.
+            - Fixed Bug
+                * Fixed a bug that the print start position on the horizontal axis is not set
+                to the head of the line even if 0 is specified for the position in the
+                AppendBitmapWithAbsolutePosition method in page mode.
+
+        [SDK]
+            - Changed sample code
+                * Changed the implementation of printing the sample of CJK unified ideographs
+                in UTF-8 to use the AppendCjkUnifiedIdeographFont method.
+
+    Ver. 5.9.0
+    2018/11/20
+        [StarIOExtension]
+            - Added features
+                * Added API for Melody Speaker control.
+                * Added a feature that can get the cause of StarIoExtManager.ConnectAsync() method failure.
+            - Fixed Bug
+                * Fixed bug that StarIoExtManager.DisconnectAsync() method may not operate correctly.
+
+        [SMCloudServices]
+            - Fixed Bug
+                * Fixed bug that SMCloudServices.ShowRegistrationViewAsync() method may not display the view in proper layout.
+
+        [SDK]
+            - Added sample codes
+                * Added sample codes for Melody Speaker control.
+                * Added sample cpdes for get the cause of StarIoExtManager.ConnectAsync() method failure.
+            - Fixed Bug
+                * When the barcode reader is set to add CR LF to the scanned data,
+                the application crashes after scanning the barcode.
+
+    Ver. 5.7.0
+    2018/06/29
+        [StarIOExtension]
+            - End of support
+                * StarIoExt.CreateScaleCommandBuilder Method
+                * StarIoExt.CreateScaleConnectParser Method
+                * StarIoExt.CreateScaleWeightParser Method
+                * ScaleModel Constants
+                * IScaleCommandBuilder Interface
+                * IPeripheralCommandParser.CreateReceiveCommands Method
+                * IScaleWeightParser Interface
+
+        [SMCloudServices]
+            - Added features
+                * SMCloudServices.ShowRegistrationViewAsync Method
+                When the password of SCS dash board is changed, you can update local password too.
+
+        [SDK]
+            - Added sample codes for Print Re-Direction.
+
+
+    Ver. 5.6.0
+    2018/05/21
+        [StarIOPort]
+            - Added features
+                * Added mC-Print2 and mC-Print3.
+                * Added options to portSettings of GetPort method.
+                * Added the ConnectedInterface property to StarPrinterStatus class.
+
+        [StarIOExtension]
+            - Added features
+                * Added method for setting top magin.
+                * Added method for setting printable area.
+                * Added drive time parameter and delay time parameter to the AppendSound method.
+            - Fixed Bugs
+                * Fixed a bug that Parse method of IScaleWeightParser interface might not return proper result.
+
+        [SDK]
+            - Added Open Source License item.
+
+    Ver. 5.5.0
+    2018/01/31
+        [StarIO_Extension]
+            - Added method for setting or clearing horizontal tab.
+
+        [SDK]
+            - Added Sample Codes.
+                * Implementation of the CJK unified ideographs printing sample under UTF-8.
+                (Supported by TSP650II(JP2/TW) with firmware version 4.0 or later only)
+
+    Ver. 5.4.0
+    2017/08/16
+        [StarIO]
+            - Added API for Bluetooth Settings.
+        [StarIO_Extension]
+            - Added API for Scale, Display control.
+            - Added graphic data compression function for SM-L series.
+        [SDK]
+            - Added sample codes for getting serial number, Firmware version and Library version,
+            and setting Bluetooth.
+
+    Ver. 5.3.0
+    2017/05/10
+        [StarIO]
+            - Added SM-L300.
+        [StarIO_Extension]
+            - Added methods that creates Black Mark/Page Mode commands.
+        [SDK]
+            - Added sample code for Black Mark/Page Mode function.
+
+    Ver. 5.2.1
+    2017/03/29
+        [StarIO]
+            - Fixed Bug.
+                * Fixed issue that bluetooth device could not be discovered.
+
+    Ver. 5.2.0
+    2017/03/23
+        [StarIO]
+            - Connectivity improvements
+                * Bluetooth Mac Address for SM-L200.
+            - Fixed Bug.
+                * Fixed issue that caused release build error in Universal Windows Platform application.
+
+        [StarIO_Extension]
+            - Fixed Bug.
+                * Fixed issue that caused release build error in Universal Windows Platform application.
+
+        [SMCloudServices]
+            - Fixed Bug.
+                * Fixed issue that caused release build error in Universal Windows Platform application.
+            - Added the MicroReceipt function.
+            MicroReceipt function will reduce paper.
+
+        [SDK]
+            - Add Sample Code.
+                * 2D barcode reader and scale available with mPOP.
+
+    Ver. 5.1.1
+    2017/01/10
+        Bug Fix
+            - Fixed issue where UploadBitmapAsync method does not work properly.
+
+    Ver. 5.1.0
+    2016/11/29
+        First Release
