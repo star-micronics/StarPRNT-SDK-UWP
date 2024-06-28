@@ -200,8 +200,12 @@ namespace StarPRNTSDK
 
             SelectedPrinter _selectedPrinter = new SelectedPrinter();
 
+            var tmpIsSelectedMainPrinter = _selectedPrinter.IsSelectedMainPrinter;
+
             PrinterSettings printerSettings = new PrinterSettings();
             await printerSettings.WriteSetting(this.ModelName, portName, this.MacAddress, portSetting, emulation, cashDrawerOpenStatus, simpleModelName, paperSize, _selectedPrinter.IsSelectedMainPrinter);
+
+            _selectedPrinter.IsSelectedMainPrinter = tmpIsSelectedMainPrinter;
 
             SelectedPrinter selectedPrinter = new SelectedPrinter(this.ModelName, portName, this.MacAddress, _selectedPrinter.IsSelectedMainPrinter);
         }

@@ -6,12 +6,6 @@ using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using Windows.UI;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 
 namespace StarPRNTSDK.Localizereceipts
 {
@@ -25,7 +19,7 @@ namespace StarPRNTSDK.Localizereceipts
             CharacterCode = CharacterCode.Standard;
         }
 
-        public override void Append2inchTextReceiptData(StarIO_Extension.ICommandBuilder builder, bool utf8)
+        public override void Append2inchTextReceiptData(ICommandBuilder builder, bool utf8)
         {
             string encoding;
             if (utf8)
@@ -47,8 +41,10 @@ namespace StarPRNTSDK.Localizereceipts
 
             builder.AppendAlignment(AlignmentPosition.Center);
 
+            builder.AppendData(Encoding.GetEncoding(encoding).GetBytes("[Sample receipt]\n").AsBuffer());
+
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "Star Clothing Boutique\n" +
+                            "**** Boutique\n" +
                             "123 Star Road\n" +
                             "City, State 12345\n" +
                             "\n").AsBuffer());
@@ -56,7 +52,7 @@ namespace StarPRNTSDK.Localizereceipts
             builder.AppendAlignment(AlignmentPosition.Left);
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "Date:MM/DD/YYYY    Time:HH:MM PM\n" +
+                            "Date:MM/DD/YYYY    Time:HH:MM PM\n" +
                             "--------------------------------\n" +
                             "\n").AsBuffer());
 
@@ -101,7 +97,7 @@ namespace StarPRNTSDK.Localizereceipts
             builder.AppendBarcodeData(Encoding.GetEncoding("ASCII").GetBytes("{BStar.").AsBuffer(), BarcodeSymbology.Code128, BarcodeWidth.Mode2, 40, true);
         }
 
-        public override void Append3inchTextReceiptData(StarIO_Extension.ICommandBuilder builder, bool utf8)
+        public override void Append3inchTextReceiptData(ICommandBuilder builder, bool utf8)
         {
             string encoding;
             if (utf8)
@@ -123,8 +119,10 @@ namespace StarPRNTSDK.Localizereceipts
 
             builder.AppendAlignment(AlignmentPosition.Center);
 
+            builder.AppendData(Encoding.GetEncoding(encoding).GetBytes("[Sample receipt]\n").AsBuffer());
+
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "Star Clothing Boutique\n" +
+                            "**** Boutique\n" +
                             "123 Star Road\n" +
                             "City, State 12345\n" +
                             "\n").AsBuffer());
@@ -132,14 +130,14 @@ namespace StarPRNTSDK.Localizereceipts
             builder.AppendAlignment(AlignmentPosition.Left);
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "Date:MM/DD/YYYY                    Time:HH:MM PM\n" +
+                            "Date:MM/DD/YYYY                    Time:HH:MM PM\n" +
                             "------------------------------------------------\n" +
                             "\n").AsBuffer());
 
             builder.AppendDataWithEmphasis(Encoding.GetEncoding(encoding).GetBytes("SALE\n").AsBuffer());
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "SKU               Description              Total\n" +
+                            "SKU               Description              Total\n" +
                             "300678566         PLAIN T-SHIRT            10.99\n" +
                             "300692003         BLACK DENIM              29.99\n" +
                             "300651148         BLUE DENIM               29.99\n" +
@@ -156,7 +154,7 @@ namespace StarPRNTSDK.Localizereceipts
             builder.AppendDataWithMultiple(Encoding.GetEncoding(encoding).GetBytes("   $156.95\n").AsBuffer(), 2, 2);
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "------------------------------------------------\n" +
+                            "------------------------------------------------\n" +
                             "\n" +
                             "Charge\n" +
                             "156.95\n" +
@@ -180,7 +178,7 @@ namespace StarPRNTSDK.Localizereceipts
             builder.AppendBarcodeData(Encoding.GetEncoding("ASCII").GetBytes("{BStar.").AsBuffer(), BarcodeSymbology.Code128, BarcodeWidth.Mode2, 40, true);
         }
 
-        public override void Append4inchTextReceiptData(StarIO_Extension.ICommandBuilder builder, bool utf8)
+        public override void Append4inchTextReceiptData(ICommandBuilder builder, bool utf8)
         {
             string encoding;
             if (utf8)
@@ -202,8 +200,10 @@ namespace StarPRNTSDK.Localizereceipts
 
             builder.AppendAlignment(AlignmentPosition.Center);
 
+            builder.AppendData(Encoding.GetEncoding(encoding).GetBytes("[Sample receipt]\n").AsBuffer());
+
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "Star Clothing Boutique\n" +
+                            "**** Boutique\n" +
                             "123 Star Road\n" +
                             "City, State 12345\n" +
                             "\n").AsBuffer());
@@ -211,14 +211,14 @@ namespace StarPRNTSDK.Localizereceipts
             builder.AppendAlignment(AlignmentPosition.Left);
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "Date:MM/DD/YYYY                                         Time:HH:MM PM\n" +
+                            "Date:MM/DD/YYYY                                         Time:HH:MM PM\n" +
                             "---------------------------------------------------------------------\n" +
                             "\n").AsBuffer());
 
             builder.AppendDataWithEmphasis(Encoding.GetEncoding(encoding).GetBytes("SALE\n").AsBuffer());
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "SKU                        Description                          Total\n" +
+                            "SKU                        Description                          Total\n" +
                             "300678566                  PLAIN T-SHIRT                        10.99\n" +
                             "300692003                  BLACK DENIM                          29.99\n" +
                             "300651148                  BLUE DENIM                           29.99\n" +
@@ -236,7 +236,7 @@ namespace StarPRNTSDK.Localizereceipts
                                     "   $156.95\n").AsBuffer(), 2, 2);
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "---------------------------------------------------------------------\n" +
+                            "---------------------------------------------------------------------\n" +
                             "\n" +
                             "Charge\n" +
                             "156.95\n" +
@@ -265,7 +265,7 @@ namespace StarPRNTSDK.Localizereceipts
 
         }
 
-        public override void AppendEscPos3inchTextReceiptData(StarIO_Extension.ICommandBuilder builder, bool utf8)
+        public override void AppendEscPos3inchTextReceiptData(ICommandBuilder builder, bool utf8)
         {
             string encoding;
             if (utf8)
@@ -287,9 +287,10 @@ namespace StarPRNTSDK.Localizereceipts
 
             builder.AppendAlignment(AlignmentPosition.Center);
 
+            builder.AppendData(Encoding.GetEncoding(encoding).GetBytes("[Sample receipt]\n").AsBuffer());
+
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "\n" +
-                    "Star Clothing Boutique\n" +
+                            "**** Boutique\n" +
                             "123 Star Road\n" +
                             "City, State 12345\n" +
                             "\n").AsBuffer());
@@ -305,7 +306,7 @@ namespace StarPRNTSDK.Localizereceipts
                                     "SALE \n").AsBuffer());
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "SKU            Description           Total\n" +
+                            "SKU            Description           Total\n" +
                             "300678566      PLAIN T-SHIRT         10.99\n" +
                             "300692003      BLACK DENIM           29.99\n" +
                             "300651148      BLUE DENIM            29.99\n" +
@@ -323,7 +324,7 @@ namespace StarPRNTSDK.Localizereceipts
                                     "   $156.95\n").AsBuffer(), 2, 2);
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "------------------------------------------\n" +
+                            "------------------------------------------\n" +
                             "\n" +
                             "Charge\n" +
                             "156.95\n" +
@@ -352,7 +353,7 @@ namespace StarPRNTSDK.Localizereceipts
 
         }
 
-        public override void AppendDotImpact3inchTextReceiptData(StarIO_Extension.ICommandBuilder builder, bool utf8)
+        public override void AppendDotImpact3inchTextReceiptData(ICommandBuilder builder, bool utf8)
         {
             string encoding;
             if (utf8)
@@ -374,8 +375,10 @@ namespace StarPRNTSDK.Localizereceipts
 
             builder.AppendAlignment(AlignmentPosition.Center);
 
+            builder.AppendData(Encoding.GetEncoding(encoding).GetBytes("[Sample receipt]\n").AsBuffer());
+
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "Star Clothing Boutique\n" +
+                            "**** Boutique\n" +
                             "123 Star Road\n" +
                             "City, State 12345\n" +
                             "\n").AsBuffer());
@@ -383,7 +386,7 @@ namespace StarPRNTSDK.Localizereceipts
             builder.AppendAlignment(AlignmentPosition.Left);
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "Date:MM/DD/YYYY              Time:HH:MM PM\n" +
+                            "Date:MM/DD/YYYY              Time:HH:MM PM\n" +
                             "------------------------------------------\n" +
                             "\n").AsBuffer());
 
@@ -391,7 +394,7 @@ namespace StarPRNTSDK.Localizereceipts
                                     "SALE \n").AsBuffer());
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "SKU             Description          Total\n" +
+                            "SKU             Description          Total\n" +
                             "300678566       PLAIN T-SHIRT        10.99\n" +
                             "300692003       BLACK DENIM          29.99\n" +
                             "300651148       BLUE DENIM           29.99\n" +
@@ -439,7 +442,8 @@ namespace StarPRNTSDK.Localizereceipts
         public override string Create2inchRasterReceiptText()
         {
             String textToPrint =
-                "             Star Clothing Boutique\n" +
+                "                 [Sample receipt]\n" +
+                "                  **** Boutique\n" +
                 "                  123 Star Road\n" +
                 "                City, State 12345\n" +
                 "\n" +
@@ -472,7 +476,8 @@ namespace StarPRNTSDK.Localizereceipts
         public override string Create3inchRasterReceiptText()
         {
             String textToPrint =
-                    "               Star Clothing Boutique\n" +
+                    "                   [Sample receipt]\n" +
+                    "                    **** Boutique\n" +
                     "                    123 Star Road\n" +
                     "                  City, State 12345\n" +
                     "\n" +
@@ -505,7 +510,8 @@ namespace StarPRNTSDK.Localizereceipts
         public override string Create4inchRasterReceiptText()
         {
             String textToPrint =
-                    "                                      Star Clothing Boutique\n" +
+                    "                                          [Sample receipt]\n" +
+                    "                                           **** Boutique\n" +
                     "                                           123 Star Road\n" +
                     "                                         City, State 12345\n" +
                     "\n" +

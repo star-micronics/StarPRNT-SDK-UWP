@@ -85,7 +85,7 @@ namespace StarPRNTSDK
 
             if (isTapYes)
             {
-                if ((simpleModelName.StartsWith("BSC10") || simpleModelName.StartsWith("SP700")) == false)
+                if ((simpleModelName.Equals("BSC10") || simpleModelName.StartsWith("SP700")) == false)
                 {
                     if (isMainPrinter)
                     {

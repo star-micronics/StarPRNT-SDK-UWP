@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using Windows.UI.Xaml.Media.Imaging;
 
 namespace StarPRNTSDK.Localizereceipts
 {
@@ -19,7 +18,7 @@ namespace StarPRNTSDK.Localizereceipts
             CharacterCode = CharacterCode.Japanese;
         }
 
-        public override void Append2inchTextReceiptData(StarIO_Extension.ICommandBuilder builder, bool utf8)
+        public override void Append2inchTextReceiptData(ICommandBuilder builder, bool utf8)
         {
             string encoding;
             if (utf8)
@@ -43,7 +42,9 @@ namespace StarPRNTSDK.Localizereceipts
 
             builder.AppendEmphasis(true);
 
-            builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("スター電機\n").AsBuffer(), 3);
+            builder.AppendData(Encoding.GetEncoding(encoding).GetBytes("[サンプル印刷]\n").AsBuffer());
+
+            builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("○○○○電機\n").AsBuffer(), 3);
 
             builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("修理報告書　兼領収書\n").AsBuffer(), 2);
 
@@ -52,14 +53,13 @@ namespace StarPRNTSDK.Localizereceipts
             builder.AppendAlignment(AlignmentPosition.Left);
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "--------------------------------\n" +
+                            "--------------------------------\n" +
                             "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                            "TEL：054-347-XXXX\n" +
+                            "TEL：054-263-XXXX\n" +
                             "\n" +
                             "         ｲｹﾆｼ  ｼｽﾞｺ   ｻﾏ\n" +
                             "お名前：池西　静子　様\n" +
-                            "御住所：静岡市清水区七ツ新屋\n" +
-                            "　　　　５３６番地\n" +
+                            "御住所：静岡市駿河区中吉田\n" +
                             "伝票番号：No.12345-67890\n" +
                             "\n" +
                             "　この度は修理をご用命頂き有難うございます。\n" +
@@ -86,7 +86,7 @@ namespace StarPRNTSDK.Localizereceipts
             builder.AppendBarcodeData(Encoding.GetEncoding("ASCII").GetBytes("{BStar.").AsBuffer(), BarcodeSymbology.Code128, BarcodeWidth.Mode2, 40, true);
         }
 
-        public override void Append3inchTextReceiptData(StarIO_Extension.ICommandBuilder builder, bool utf8)
+        public override void Append3inchTextReceiptData(ICommandBuilder builder, bool utf8)
         {
             string encoding;
             if (utf8)
@@ -110,7 +110,9 @@ namespace StarPRNTSDK.Localizereceipts
 
             builder.AppendEmphasis(true);
 
-            builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("スター電機\n").AsBuffer(), 3);
+            builder.AppendData(Encoding.GetEncoding(encoding).GetBytes("[サンプル印刷]\n").AsBuffer());
+
+            builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("○○○○電機\n").AsBuffer(), 3);
 
             builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("修理報告書　兼領収書\n").AsBuffer(), 2);
 
@@ -119,14 +121,13 @@ namespace StarPRNTSDK.Localizereceipts
             builder.AppendAlignment(AlignmentPosition.Left);
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "------------------------------------------------\n" +
+                            "------------------------------------------------\n" +
                             "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                            "TEL：054-347-XXXX\n" +
+                            "TEL：054-263-XXXX\n" +
                             "\n" +
                             "           ｲｹﾆｼ  ｼｽﾞｺ   ｻﾏ\n" +
                             "　お名前：池西　静子　様\n" +
-                            "　御住所：静岡市清水区七ツ新屋\n" +
-                            "　　　　　５３６番地\n" +
+                            "　御住所：静岡市駿河区中吉田\n" +
                             "　伝票番号：No.12345-67890\n" +
                             "\n" +
                             "　この度は修理をご用命頂き有難うございます。\n" +
@@ -154,7 +155,7 @@ namespace StarPRNTSDK.Localizereceipts
 
         }
 
-        public override void Append4inchTextReceiptData(StarIO_Extension.ICommandBuilder builder, bool utf8)
+        public override void Append4inchTextReceiptData(ICommandBuilder builder, bool utf8)
         {
             string encoding;
             if (utf8)
@@ -178,9 +179,11 @@ namespace StarPRNTSDK.Localizereceipts
 
             builder.AppendEmphasis(true);
 
-            //IBuffer otherData = System.Text.Encoding.UTF8.GetBytes("スター電機\n").AsBuffer();
+            //IBuffer otherData = System.Text.Encoding.UTF8.GetBytes("○○○○電機\n").AsBuffer();
 
-            builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("スター電機\n").AsBuffer(), 3);
+            builder.AppendData(Encoding.GetEncoding(encoding).GetBytes("[サンプル印刷]\n").AsBuffer());
+
+            builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("○○○○電機\n").AsBuffer(), 3);
 
             builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("修理報告書　兼領収書\n").AsBuffer(), 2);
 
@@ -189,14 +192,13 @@ namespace StarPRNTSDK.Localizereceipts
             builder.AppendAlignment(AlignmentPosition.Left);
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "---------------------------------------------------------------------\n" +
+                            "---------------------------------------------------------------------\n" +
                             "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                            "TEL：054-347-XXXX\n" +
+                            "TEL：054-263-XXXX\n" +
                             "\n" +
                             "           ｲｹﾆｼ  ｼｽﾞｺ   ｻﾏ\n" +
                             "　お名前：池西　静子　様\n" +
-                            "　御住所：静岡市清水区七ツ新屋\n" +
-                            "　　　　　５３６番地\n" +
+                            "　御住所：静岡市駿河区中吉田\n" +
                             "　伝票番号：No.12345-67890\n" +
                             "\n" +
                             "この度は修理をご用命頂き有難うございます。\n" +
@@ -225,7 +227,7 @@ namespace StarPRNTSDK.Localizereceipts
 
         }
 
-        public override void AppendEscPos3inchTextReceiptData(StarIO_Extension.ICommandBuilder builder, bool utf8)
+        public override void AppendEscPos3inchTextReceiptData(ICommandBuilder builder, bool utf8)
         {
             string encoding;
             if (utf8)
@@ -249,7 +251,9 @@ namespace StarPRNTSDK.Localizereceipts
 
             builder.AppendEmphasis(true);
 
-            builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("スター電機\n").AsBuffer(), 3);
+            builder.AppendData(Encoding.GetEncoding(encoding).GetBytes("[サンプル印刷]\n").AsBuffer());
+
+            builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("○○○○電機\n").AsBuffer(), 3);
 
             builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("修理報告書　兼領収書\n").AsBuffer(), 2);
 
@@ -258,14 +262,13 @@ namespace StarPRNTSDK.Localizereceipts
             builder.AppendAlignment(AlignmentPosition.Left);
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "------------------------------------------\n" +
+                            "------------------------------------------\n" +
                             "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                            "TEL：054-347-XXXX\n" +
+                            "TEL：054-263-XXXX\n" +
                             "\n" +
                             "           ｲｹﾆｼ  ｼｽﾞｺ   ｻﾏ\n" +
                             "　お名前：池西　静子　様\n" +
-                            "　御住所：静岡市清水区七ツ新屋\n" +
-                            "　　　　　５３６番地\n" +
+                            "　御住所：静岡市駿河区中吉田\n" +
                             "　伝票番号：No.12345-67890\n" +
                             "\n" +
                             "　この度は修理をご用命頂き有難うございます。\n" +
@@ -293,7 +296,7 @@ namespace StarPRNTSDK.Localizereceipts
 
         }
 
-        public override void AppendDotImpact3inchTextReceiptData(StarIO_Extension.ICommandBuilder builder, bool utf8)
+        public override void AppendDotImpact3inchTextReceiptData(ICommandBuilder builder, bool utf8)
         {
             string encoding;
             if (utf8)
@@ -315,21 +318,22 @@ namespace StarPRNTSDK.Localizereceipts
 
             builder.AppendEmphasis(true);
 
-            builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("スター電機\n修理報告書　兼領収書\n").AsBuffer(), 2);
+            builder.AppendData(Encoding.GetEncoding(encoding).GetBytes("[サンプル印刷]\n").AsBuffer());
+
+            builder.AppendDataWithMultipleHeight(Encoding.GetEncoding(encoding).GetBytes("○○○○電機\n修理報告書　兼領収書\n").AsBuffer(), 2);
 
             builder.AppendEmphasis(false);
 
             builder.AppendAlignment(AlignmentPosition.Left);
 
             builder.AppendData(Encoding.GetEncoding(encoding).GetBytes(
-                    "------------------------------------------\n" +
+                            "------------------------------------------\n" +
                             "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                            "TEL：054-347-XXXX\n" +
+                            "TEL：054-263-XXXX\n" +
                             "\n" +
                             "        ｲｹﾆｼ  ｼｽﾞｺ  ｻﾏ\n" +
                             "　お名前：池西  静子　様\n" +
-                            "　御住所：静岡市清水区七ツ新屋\n" +
-                            "　　　　　５３６番地\n" +
+                            "　御住所：静岡市駿河区中吉田\n" +
                             "　伝票番号：No.12345-67890\n" +
                             "\n" +
                             "　この度は修理をご用命頂き有難うございます。\n" +
@@ -368,17 +372,17 @@ namespace StarPRNTSDK.Localizereceipts
         public override string Create2inchRasterReceiptText()
         {
             String textToPrint =
-                "　　　　　　スター電機\n" +
+                "　　　　　　[サンプル印刷]\n" +
+                "　　　　　　○○○○電機\n" +
                 "　　　　修理報告書　兼領収書\n" +
                 "----------------------------------------\n" +
                 "発行日時：\n" +
                 "         YYYY年MM月DD日HH時MM分\n" +
-                "TEL：054-347-XXXX\n" +
+                "TEL：054-263-XXXX\n" +
                 "\n" +
                 "　　　　　ｲｹﾆｼ  ｼｽﾞｺ  ｻﾏ\n" +
                 "　お名前  : 池西　静子　様\n" +
-                "　御住所 : 静岡市清水区七ツ新屋\n" +
-                "　　　　　５３６番地\n" +
+                "　御住所 : 静岡市駿河区中吉田\n" +
                 "　伝票番号：No.12345-67890\n" +
                 "\n" +
                 "　この度は修理をご用命頂き有難うござい\n" +
@@ -407,17 +411,17 @@ namespace StarPRNTSDK.Localizereceipts
         public override string Create3inchRasterReceiptText()
         {
             String textToPrint =
-                "                        スター電機\n" +
+                "                        [サンプル印刷]\n" +
+                "                        ○○○○電機\n" +
                 "               修理報告書  兼領収書\n" +
                 "------------------------------------------\n" +
                 "発行日時 : \n" +
                 "        YYYY年MM月DD日HH時MM分\n" +
-                "TEL :054-347-XXXX\n" +
+                "TEL :054-263-XXXX\n" +
                 "\n" +
                 "　　　　　ｲｹﾆｼ  ｼｽﾞｺ  ｻﾏ\n" +
                 "　お名前：池西　静子　様\n" +
-                "　御住所：静岡市清水区七ツ新屋\n" +
-                "　　　　　５３６番地\n" +
+                "　御住所：静岡市駿河区中吉田\n" +
                 "　伝票番号：No.12345-67890\n" +
                 "\n" +
                 "　この度は修理をご用命頂き有難うござい\n" +
@@ -446,16 +450,16 @@ namespace StarPRNTSDK.Localizereceipts
         public override string Create4inchRasterReceiptText()
         {
             String textToPrint =
-                "                                                スター電機\n" +
+                "                                                [サンプル印刷]\n" +
+                "                                                ○○○○電機\n" +
                 "                                        修理報告書　兼領収書\n" +
                 "---------------------------------------------------------------------------\n" +
                 "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                "TEL：054-347-XXXX\n" +
+                "TEL：054-263-XXXX\n" +
                 "\n" +
                 "\t\t          　　　　　ｲｹﾆｼ  ｼｽﾞｺ  ｻﾏ\n" +
                 "\t\t          　お名前：池西　静子　様\n" +
-                "\t\t          　御住所：静岡市清水区七ツ新屋\n" +
-                "\t\t          　　　　　５３６番地\n" +
+                "\t\t          　御住所：静岡市駿河区中吉田\n" +
                 "\t\t          　伝票番号：No.12345-67890\n" +
                 "\n" +
                 "\t\t         　この度は修理をご用命頂き有難うございます。\n" +

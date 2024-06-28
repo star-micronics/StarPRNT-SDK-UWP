@@ -401,8 +401,8 @@ namespace StarPRNTSDK.Functions
                 builder.AppendDataWithLineFeed(otherData);
                 builder.AppendCutPaper(CutPaperAction.PartialCutWithFeed);
 
-                builder.AppendData(Encoding.GetEncoding("ASCII").GetBytes("*Top margin:6mm*\n").AsBuffer());
-                builder.AppendTopMargin(6);
+                builder.AppendData(Encoding.GetEncoding("ASCII").GetBytes("*Top margin:5mm*\n").AsBuffer());
+                builder.AppendTopMargin(5);
                 builder.AppendDataWithLineFeed(otherData);
                 builder.AppendDataWithLineFeed(otherData);
                 builder.AppendDataWithLineFeed(otherData);

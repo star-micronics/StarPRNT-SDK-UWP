@@ -78,6 +78,7 @@ namespace StarPRNTSDK
         L200,
         L300,
         BSC10,
+        BSC10II,
         S210i_StarPRNT,
         S220i_StarPRNT,
         S230i_StarPRNT,
@@ -801,7 +802,7 @@ namespace StarPRNTSDK
                           BlackMarkIsEnabled = false,
                           BlackMarkDetectionIsEnabled = false,
                           PageModeIsEnabled = true,
-                          PaperPresentStatusIsEnabled = false,
+                          PaperPresentStatusIsEnabled = true,
                           CashDrawerIsEnabled = true,
                           BarcodeReaderIsEnabled = true,
                           CustomerDisplayIsEnabled = true,
@@ -810,6 +811,36 @@ namespace StarPRNTSDK
                           SoundVolumeDefault = 12,
                           SoundVolumeMax = 15,
                           SoundVolumeMin = 0,
+                          ProductSerialNumberIsEnabled = true
+                      }
+                    },
+
+                    { PrinterModel.BSC10II,
+                      new PrinterInfo()
+                      {
+                          Emulation = Emulation.StarPRNT,
+                          DeviceID = new string[] {  "BSC10II (STR-001)" },
+                          BTDeviceNamePrefix = (string[])Enumerable.Empty<string>(),
+                          DefaultPortSettings = "",
+                          PaperSize = "576",
+                          ChangeCashDrawerPolarityIsEnabled = true,
+                          SimpleModelName = "BSC10II",
+                          TextReceiptIsEnabled = true,
+                          UTF8IsEnabled = true,
+                          RasterReceiptIsEnabled = true,
+                          CJKIsEnabled = true,
+                          BlackMarkIsEnabled = false,
+                          BlackMarkDetectionIsEnabled = false,
+                          PageModeIsEnabled = true,
+                          PaperPresentStatusIsEnabled = false,
+                          CashDrawerIsEnabled = true,
+                          BarcodeReaderIsEnabled = false,
+                          CustomerDisplayIsEnabled = false,
+                          MelodySpeakerIsEnabled = false,
+                          SoundNumberDefault = -1,
+                          SoundVolumeDefault = -1,
+                          SoundVolumeMax = -1,
+                          SoundVolumeMin = -1,
                           ProductSerialNumberIsEnabled = true
                       }
                     },
@@ -873,12 +904,13 @@ namespace StarPRNTSDK
                     { 16, PrinterModel.L200 },
                     { 17, PrinterModel.L300 },
                     { 18, PrinterModel.BSC10 },
-                    { 19, PrinterModel.S210i_StarPRNT },
-                    { 20, PrinterModel.S220i_StarPRNT},
-                    { 21, PrinterModel.S230i_StarPRNT},
-                    { 22, PrinterModel.T300i_StarPRNT },
-                    { 23, PrinterModel.T400i_StarPRNT },
-                    { 24, PrinterModel.Unknown },
+                    { 19, PrinterModel.BSC10II },
+                    { 20, PrinterModel.S210i_StarPRNT },
+                    { 21, PrinterModel.S220i_StarPRNT},
+                    { 22, PrinterModel.S230i_StarPRNT},
+                    { 23, PrinterModel.T300i_StarPRNT },
+                    { 24, PrinterModel.T400i_StarPRNT },
+                    { 25, PrinterModel.Unknown },
                 };
             }
         }

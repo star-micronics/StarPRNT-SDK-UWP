@@ -1,3 +1,25 @@
+# V5.18.1
+
+## StarIOPort
+- Added Features
+  * ICommandBuilder Class : CutPaperAction.TearOff
+  * ICommandBuilder Class : InternationalType.India
+
+## SDK
+- Added Sample Codes
+  * Supported BSC10II.
+
+
+# V5.17.0
+
+## StarIOPort
+- Minor Fixes that do not affect operation.
+
+## SDK
+- Added Sample Codes
+  * Supported TSP100IV SK.
+
+
 # V5.16.0
 
 ## StarIOPort
@@ -5,7 +27,7 @@
   * Added mC-Label3.
 - Added new Bluetooth module information for SM-S230i, SM-T300i, SM-T300 and SM-T400i.
 
-## StarIOExtension]
+## StarIOExtension
 - Added features
   * Added mC-Label3.
 
