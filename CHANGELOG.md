@@ -7,7 +7,7 @@
 
 ## SDK
 - Added Sample Codes
-  * Supported BSC10II.
+  * Supported BSC10II (Limited region model).
 
 
 # V5.17.0
