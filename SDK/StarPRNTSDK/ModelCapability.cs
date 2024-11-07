@@ -790,7 +790,7 @@ namespace StarPRNTSDK
                       {
                           Emulation = Emulation.StarPRNT,
                           DeviceID = new string[] {  "TSP143IV (STR-001)" },
-                          BTDeviceNamePrefix = (string[])Enumerable.Empty<string>(),
+                          BTDeviceNamePrefix = new string[] {  "TSP100IV-" },
                           DefaultPortSettings = "",
                           PaperSize = "576",
                           ChangeCashDrawerPolarityIsEnabled = true,
