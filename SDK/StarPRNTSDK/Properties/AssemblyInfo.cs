@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("STAR MICRONICS CO., LTD.")]
 [assembly: AssemblyProduct("StarPRNTSDK")]
-[assembly: AssemblyCopyright("Copyright © 2016-2024 Star Micronics Co., Ltd.")]
+[assembly: AssemblyCopyright("Copyright © 2016-2025 Star Micronics Co., Ltd.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -23,6 +23,6 @@ using System.Runtime.InteropServices;
 // すべての値を指定するか、以下のように '*' を使用してビルドおよびリビジョン番号を
 // 既定値にすることができます:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("5.19.0.0")]
-[assembly: AssemblyFileVersion("5.19.0.0")]
+[assembly: AssemblyVersion("5.20.0.0")]
+[assembly: AssemblyFileVersion("5.20.0.0")]
 [assembly: ComVisible(false)]

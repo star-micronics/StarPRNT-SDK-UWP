@@ -85,7 +85,15 @@ namespace StarPRNTSDK
 
             if (isTapYes)
             {
-                if ((simpleModelName.Equals("BSC10") || simpleModelName.StartsWith("SP700")) == false)
+                if (simpleModelName.Equals("mC-Label2"))
+                {
+                    if (isMainPrinter)
+                    {
+                        // 576dots
+                        paperSizeIndex = 1;
+                    }
+                }
+                else if ((simpleModelName.Equals("BSC10") || simpleModelName.StartsWith("SP700")) == false)
                 {
                     if (isMainPrinter)
                     {

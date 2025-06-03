@@ -62,7 +62,7 @@ namespace StarPRNTSDK
             {
                 PrinterSettings printerSettings = new PrinterSettings();
                 ILocalizeReceipts localizeReceipts = ILocalizeReceipts.createLocalizeReceipts(printerSettings.GetLanguage(), printerSettings.GetPaperSize(true), printerSettings);
-                string pasteText = this.PasteTextTextBox.Text;
+                string pasteText = this.PasteTextTextBox.Text.Replace("\r", "\n");
                 bool doubleHeight = this.DoubleHeightToggleSwitch.IsOn;
 
                 IBuffer commands = PrinterFunctions.CreatePasteTextBlackMarkData(printerSettings.GetEmulation(true), localizeReceipts, pasteText, doubleHeight, this.GetBlackMarkType(), false);
